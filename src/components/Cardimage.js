@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Cardimage = ({ cardobj }) => {
-    const { img } = cardobj;
+const Cardimage = ({ imageSrc }) => {
+    
     return (
         <div className="cardimage">
-            <img src={img} alt="카드이미지" />  
+            <img src={imageSrc} alt="카드이미지" />  
             {/* <cardimagestyle src={require('./logo.jpg')} alt="카드이미지" /> */}
         </div>
     )

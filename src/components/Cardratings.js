@@ -13,34 +13,58 @@ const Cardratings = ({ cardobj }) => {
     //     return result;
     // }
 
-    const ratingFill = (rating) => {
-        var ratingFillArr = [];        
+    // const ratingFill = (rating) => {
+    //     var ratingFillArr = [];        
 
-        for (let i = 0; i < rating; i++) {
-            const element = <li><span className="ratingCircle on"></span></li>;
-            ratingFillArr.push(element);
-        }       
-        console.log(ratingFillArr);        
-        return ratingFillArr.map(ratingOn => ratingOn);        
-    }
+    //     for (let i = 0; i < rating; i++) {
+    //         const element = <li><span className="ratingCircle on"></span></li>;
+    //         ratingFillArr.push(element);
+    //     }       
+    //     console.log(ratingFillArr);        
+    //     return ratingFillArr;        
+    // }
 
-    const ratingEmpty = () => {
-        var ratingEmptyArr = [];
+    // const ratingEmpty = () => {
+    //     var ratingEmptyArr = [];
 
-        for (let j = 0; j < 5 - rating; j++) {
-            const element = <li><span className="ratingCircle"></span></li>;
-            ratingEmptyArr.push(element);
+    //     for (let j = 0; j < 5 - rating; j++) {
+    //         const element = <li><span className="ratingCircle"></span></li>;
+    //         ratingEmptyArr.push(element);
+    //     }
+
+    //     console.log(ratingEmptyArr);
+    //     return ratingEmptyArr;
+    // }
+
+    const drawRating = (rating) => {
+        const max = 5;
+        const ratingArr = [];
+
+        for (let i = 1; i <= max; i++) {
+            if (i > rating) {
+                ratingArr.push(
+                    <li key={i}>
+                        <span className="ratingCircle"></span>
+                    </li>
+                );
+            } else {
+                ratingArr.push(
+                    <li key={i}>
+                        <span className="ratingCircle on"></span>
+                    </li>
+                );
+            }
         }
 
-        console.log(ratingEmptyArr);
-        return ratingEmptyArr.map(ratingOn => ratingOn);
-    }
+        return ratingArr;
+    };
     
     return (
         <div className="cardratings">
             <ul>
-                {ratingFill(rating)}
-                {ratingEmpty(rating)}
+                {/* {ratingFill(rating)}
+                {ratingEmpty(rating)} */}
+                {drawRating(rating)}
             </ul>
             <span className="author">
                 {author}
